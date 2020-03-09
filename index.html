@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>new vue js</title>
+    </head>
+    <body>
+        <div id="app">
+          <h3>Gradient Online</h3>
+          <form>
+            <label>Direction</label>
+            <!-- <input type="text" v-model='direction'> -->
+            <select v-model="direction">
+                <option>to top</option>
+                <option>to bottom</option>
+                <option>to left</option>
+                <option>to right</option>
+            </select>
+            <label>color stop one</label>
+            <input type="color" v-model="colorone">
+            <label>color stop two</label>
+            <input type="color" v-model="colortwo">
+            <!-- <input type="text" v-model="colortwo"> -->
+          </form>
+            <div   class="result" :style="{ backgroundImage: ' linear-gradient('+ direction+','+ colorone +','+ colortwo +')'}">
+                
+            </div>
+            <div class="csscode">
+                <span>css code:</span>
+                background-image: linear-gradient({{direction}}, {{colorone}}, {{colortwo}});
+            </div>
+        </div>
+        <script src="js/vue.min.js"></script>
+        <script>
+           
+            var vm=new Vue({
+                el:'#app',
+                data:{
+                    direction:'to right',
+                    colorone:'#275bf0',
+                    colortwo:'#393e46',
+                    fontSize:"22px",
+                  //  activeColor: " linear-gradient('+ direction+','+ colorone +','+ colortwo +')",
+                      selected:"",     
+                },     
+            })
+        </script>
+        <style>
+            body{
+                background-color: rgb(255, 254, 254);    
+            }
+            h3{
+                text-align: center;
+                font-size: 30px;
+                font-weight: 400;
+                font-family: monospace;
+                 margin-top: 50px;
+                 color: #4575ff;
+            }
+            form{
+                margin: 0px 60px;
+                font-size: 22px;
+            }
+            .result{
+                margin: 30px 40px;
+                height: 150px;
+                background-color: aqua;
+                text-align: center;
+                 padding: 20px;
+            }
+            .csscode{
+                margin: 20px 50px;
+                border: 3px solid slategrey;
+                font-size: 20px;
+                padding: 12px;
+            }
+            .csscode span{
+                font-weight: bold;
+            }
+        </style>
+    </body>
+
+</html>
